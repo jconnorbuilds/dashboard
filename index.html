@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
   <link rel="stylesheet" href="styles.css">
+  
   <script src="dashboard.js" defer></script>
 </head>
 <body>
@@ -28,19 +29,56 @@
     </div>
 
     <div class="main-content">
-      <div class="pie-chart">Project status</div>
-      <div class="project sm1">Project 1</div>
-      <div class="project sm2">Project 2</div>
-      <div class="project md">Project 3</div>
-      <div class="bar-graph">Project hours</div>
+      <div class="doughnut">
+        <div class="label">Project status</div>
+        <div class="projects-info">
+          <div class="projects-count">20</div>
+          <div class="projects-desc">
+            Total projects
+            <div class='icon'>icon</div>
+          </div>
+        </div>
+        <div class="doughnut1-container">
+          <canvas id="doughnut1"></canvas>
+        </div>
+      </div>
+      <div class="project proj1">
+        <div class="label">Landing page</div>
+        <img src="/images/signuppreview.png" alt="">
+        <div class='icons'>
+          icons
+        </div>
+      </div>
+      <div class="project proj2">
+        <div class="label">Calculator</div>
+        <img src="/images/calcpreview.png" alt="">
+        <div class='icons'>
+          icons
+        </div>
+      </div>
+      <div class="project proj3">
+        <div class="label">Pixel Etch</div>
+        <img src="/images/etcherpreview.png" alt="">
+        <div class='icons'>
+          icons
+        </div>
+      </div>
+
+
+      <div class="bottom-data">
+        <div class="bg1-container">
+          <canvas id="bar-graph1"></canvas>
+        </div>
+      </div>
 
       <div class="line-graphs">
         <div class="line-graph">line graph 1</div>
         <div class="line-graph">line graph 2</div>
       </div>
     </div>
-      
   </div>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </html>
