@@ -2,6 +2,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -26,7 +28,7 @@ input[type="search"] {
   border: none;
 }
 
-.container {
+body > .container {
   height: 100%;
   display: grid;
   grid-template-columns: 100px 1fr;
@@ -57,25 +59,27 @@ input[type="search"] {
 }
 
 .container .sidebar,
-.main-content > div {
-  background-image: linear-gradient(to bottom right, #222222, #000000);
+.card-container > div {
+  background-image: linear-gradient(to bottom right, #2A2A2A, #000000);
 }
-
 .container .sidebar {
-  height: 100%;
   padding-top: 0;
-  border-right: 1px solid rgb(57, 57, 57);
   grid-column: 1;
   grid-row: 1 / 4;
+  border-right: 1px solid rgb(57, 57, 57);
+}
+.container .sidebar-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100%;
+  max-height: 100vh;
   display: grid;
   grid-template-rows: 80px 1fr 80px;
 }
-
 .sidebar .logo {
   align-self: center;
 }
-
-.sidebar div {
+.sidebar-wrapper div {
   padding: 10px 0;
   height: min-content;
   align-self: center; 
@@ -83,123 +87,48 @@ input[type="search"] {
 }
 
 .container .main-content {
-  grid-column: 2 / 4;
-  grid-row: 2 / 5;
+  display: grid;
+  grid-template-columns: 1fr 250px;
+}
+.main-content .card-container {
+  grid-column: 1;
   padding-left: 40px; 
   display: grid;
-  grid-template-columns: repeat(4, minmax(250px, 450px));
-  grid-template-rows: 200px repeat(3, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-rows: minmax(1em, 1fr);
+  grid-auto-rows: 1fr;
+}
+.main-content .right-sidebar {
+  grid-column: 2;
 }
 
-.main-content > div {
-  padding: 20px;
-  margin: 10px;
+.card-container > .card,
+.right-sidebar > .container {
+  padding: 15px;
   border: 1px solid rgb(57, 57, 57);
-  border-radius: 8px;
+  border-radius: 5px;
+}
+.card-container > .card {
+  max-height: 350px;
+  display: grid;
+  gap: 12px;
+  grid-template-rows: min-content min-content min-content min-content;
+}
+.card > img {
+  margin-bottom: 12px;
+  height: 80px;
+  width: 100%;
+  overflow: hidden;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
-.main-content > .doughnut {
-  grid-column: 1 / 5;
-  display: grid;
-  grid-template-rows: 15% 1fr;
-  grid-template-columns: repeat(4, minmax(20px, 1fr));
-  column-gap: 30px;
+.right-sidebar > .container {
+  height: 300px;
 }
-.doughnut > .label {
-  grid-row: 1;
-}
-.doughnut .projects-info {
-  grid-row: 2;
-  grid-column: 1;
-  display: grid;
-  grid-template-columns: repeat(2, max-content);
-  align-content: center;
-  align-items: center;
-}
-.doughnut .projects-count {
-  font-size: 4rem;
-}
-.doughnut .projects-desc {
-  display: block;
-  color: grey;
-  grid-column: 2;
-}
-.doughnut .projects-desc .icon {
+.right-sidebar .content {
   display: block;
 }
-.doughnut .doughnut1-container {
-  position: relative;
-  height: 99%;
-  width: 99%;
-  grid-column: 2;
-  grid-row: 2;
-}
-.bottom-data .bg1-container {
-  min-width: 0;
-  position: relative;
-  height: 99%;
-  width: 99%;
-  grid-row: 2;
-  grid-column: 3;
-}
-
-.main-content .proj1 {
-  grid-row: 2;
-  grid-column: 1 / 3;
-  display: grid;
-  grid-template-rows: 15% 1fr;
-  grid-template-columns: 1fr 1fr;
-}
-
-.main-content .proj3 {
-  grid-row: 3;
-  grid-column: 1 / 3;
-  display: grid;
-  grid-template-rows: 15% 1fr;
-  grid-template-columns: 1fr 1fr;
-}
-
-.main-content .proj2 {
-  grid-row: 2 / 4;
-  grid-column: 3;
-  display: grid;
-  grid-template-rows: 15% 1fr;
-  grid-template-columns: 1fr 1fr;
-}
-
-.main-content .proj1 > .label {
-  grid-row: 1;
-}
-.main-content .proj1 img,
-.main-content .proj2 img,
-.main-content .proj3 img {
-  grid-row: 2;
-  grid-column: 1 / 2;
-  display: block;
-  border-radius: 8px;
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  /* overflow: hidden; */
-}
-.main-content .proj2 img {
-  border-radius: 1px;
-}
-
-.main-content .bg1-container {
-  grid-column: 1 / 4;
-  grid-row: 4;
-  display: grid;
-  grid-template-rows: 15% 1fr;
-}
-
-.main-content .line-graphs {
-  grid-column: 4;
-  grid-row: 2 / 5;
-}
-
-.bar-graphs:first-child {
-  grid-row: 1;
-}
-
-
