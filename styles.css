@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap');
 
+:root {
+  --primary-text: white;
+  --secondary-text: #a7a7a7;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,6 +21,15 @@ body {
   height: 100vh;
 }
 
+h3 {
+  color: var(--primary-text);
+  padding-bottom: 1rem;
+}
+hr {
+  margin: 1rem;
+  border-color: grey;
+}
+
 input[type="search"] {
   appearance: none;
   font: inherit;
@@ -24,7 +37,6 @@ input[type="search"] {
   padding: 0 20px;
   border-radius: 15px;
   line-height: 30px;
-  /* height: 20px; */
   border: none;
 }
 
@@ -42,7 +54,7 @@ body > .container {
 
 .container .header {
   grid-column: 2 / 4;
-  padding: 10px 40px 0 40px;
+  padding: 0 40px 0 40px;
   padding-bottom: 0;
   display: flex;
   align-items: center;
@@ -53,22 +65,30 @@ body > .container {
   margin: 0px;
   padding: 10px;
 }
-
+h2 {
+  color: var(--primary-text)
+}
 .header .profile-switcher {
   margin-left: auto;
+  padding-right: 30px;
+}
+.profile-switcher:after {
+  content: "▼";
+  font-size: 0.5rem;
+  margin-left: 30px;
 }
 
-.container .sidebar,
+.container .nav,
 .card-container > div {
   background-image: linear-gradient(to bottom right, #2A2A2A, #000000);
 }
-.container .sidebar {
+.container .nav {
   padding-top: 0;
   grid-column: 1;
   grid-row: 1 / 4;
   border-right: 1px solid rgb(57, 57, 57);
 }
-.container .sidebar-wrapper {
+.container .nav-wrapper {
   position: sticky;
   top: 0;
   height: 100%;
@@ -76,59 +96,116 @@ body > .container {
   display: grid;
   grid-template-rows: 80px 1fr 80px;
 }
-.sidebar .logo {
+.nav .logo {
+  background-image: url(images/triangle-logo.png);
   align-self: center;
+  width: 60%;
+  height: 60%;
+  justify-self: center;
+  border-radius: 25%;
+  background-size: cover;
+  background-position: center;
 }
-.sidebar-wrapper div {
+.nav-wrapper div {
   padding: 10px 0;
   height: min-content;
   align-self: center; 
   text-align: center;
 }
+.nav-items .nav-item {
+  text-align: end;
+}
 
 .container .main-content {
   display: grid;
-  grid-template-columns: 1fr 250px;
+  grid-template-columns: 1fr 280px;
 }
 .main-content .card-container {
   grid-column: 1;
   padding-left: 40px; 
   display: grid;
   gap: 15px;
-  margin: 15px;
+  margin: 15px 15px 15px 0;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-template-rows: minmax(1em, 1fr);
+  grid-template-rows: min-content minmax(1em, 1fr);
   grid-auto-rows: 1fr;
+}
+.main-content h2 {
+  grid-column: 1 / -1;
+  padding: 15px;
 }
 .main-content .right-sidebar {
   grid-column: 2;
+  margin-top: 15px;
+  /* display: grid; */
+  gap: 15px;
+}
+.card, .post{
+  line-height: 1.4em;
 }
 
 .card-container > .card,
-.right-sidebar > .container {
-  padding: 15px;
+.right-sidebar .post-wrapper {
+  padding: 1.5rem;
   border: 1px solid rgb(57, 57, 57);
   border-radius: 5px;
 }
 .card-container > .card {
-  max-height: 350px;
   display: grid;
   gap: 12px;
-  grid-template-rows: min-content min-content min-content min-content;
+  grid-template-rows: auto 1fr auto;
 }
 .card > img {
   margin-bottom: 12px;
-  height: 80px;
+  height: 90px;
   width: 100%;
-  overflow: hidden;
-  object-position: center;
+  object-position: right;
   object-fit: cover;
   border-radius: 5px;
 }
-
-.right-sidebar > .container {
-  height: 300px;
+.card .card-descr {
+  color: var(--secondary-text);
 }
-.right-sidebar .content {
+.card .card-links {
+  height: min-content;
+  margin-left: auto;
+}
+.card-links img {
+  width: 20px; 
+  margin-left: 10px;
+}
+.right-sidebar > .container {
+  color: var(--secondary-text);
+}
+.right-sidebar .news h2 {
+  margin-bottom: 15px;
+}
+.right-sidebar .post {
   display: block;
+}
+.right-sidebar a {
+  display: block;
+  margin-top: 1rem;
+  color: var(--secondary-text)
+}
+.right-sidebar a:hover {
+  color: var(--primary-text)
+}
+.rss .post-wrapper{
+  display: grid;
+  gap: 1rem;
+}
+.rss .post {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 1rem;
+}
+.rss .rss-avatar{
+  width: 100%;
+  border-radius: 25%;
+  background-size: cover;
+  background-position: center;
+}
+.rss .text-content {
+  grid-column: 2;
 }
