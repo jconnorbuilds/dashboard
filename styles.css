@@ -79,7 +79,8 @@ h2 {
 }
 
 .container .nav,
-.card-container > div {
+.card-container > div,
+.right-sidebar .post-wrapper {
   background-image: linear-gradient(to bottom right, #2A2A2A, #000000);
 }
 .container .nav {
